@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Webcam Feed</title>
+    <style>
+        #video-container {
+            text-align: center;
+        }
+
+        #webcam {
+            width: 100%;
+            max-width: 640px;
+        }
+    </style>
+</head>
+<body>
+    <div id="video-container">
+        <video id="webcam" autoplay></video>
+    </div>
+    <script>
+        const videoContainer = document.getElementById('video-container');
+        const webcam = document.getElementById('webcam');
+
+        // Check if the browser supports WebRTC
+        if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+            // Access the webcam and set the video source to the webcam feed
+            navigator.mediaDevices.getUserMedia({ video: true })
+                .then((stream) => {
+                    webcam.srcObject = stream;
+                })
+                .catch((error) => {
+                    console.error('Error accessing webcam:', error);
+                });
+        } else {
+            alert('WebRTC is not supported in your browser');
+        }
+    </script>
+</body>
+</html>
