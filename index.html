@@ -11,9 +11,20 @@
             width: 100%;
             max-width: 640px;
         }
+        .background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('wallpaperflare.com_wallpaper (1).jpg'); /* Replace with your image URL */
+    background-size: cover;
+    z-index: -1;
+}
     </style>
 </head>
 <body>
+    <div class="background-image"></div>
     <div id="video-container">
         <video id="webcam" autoplay></video>
     </div>
